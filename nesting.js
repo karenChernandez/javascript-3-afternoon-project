@@ -51,13 +51,24 @@ var employees = [
 */
 
 //Code Here
-
+function employeeUpdater(){
+  employees.forEach(function(employee, index){
+    if(employee.firstName === "Theo"){
+      employees.splice(index , 1)
+    } else if (employee.firstName === "Lorie"){
+      employee.department = "HR"
+    }
+    
+  })
+  return employees
+}
 
 
 ////////// PROBLEM 2 //////////
 
 // Do not edit the code below.
 var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
+                         [12, 56, 44, 3, 29, 56, 56, 3, 7, 12]   
 // Do not edit the code above.
 
 /*
@@ -69,7 +80,16 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
-
+function removeDuplicates(){
+ for(i=0; i<workplaceAccidents.length; i++){
+   for(x=i+1; x<workplaceAccidents.length; x++){
+    if(workplaceAccidents[i] === workplaceAccidents[x]){
+         workplaceAccidents.splice(x,1) 
+    }
+   }
+ }
+ return workplaceAccidents
+}
 
 
 ////////// PROBLEM 3 //////////
@@ -97,8 +117,10 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+ 
+
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -139,7 +161,15 @@ var myCar = {
 */
 
 //Code Here
-
+ function recordCleaner(){
+  // console.log('myCar', myCar)
+  myCar.accidents.forEach(function(accident){
+    if (accident.atFaultForAccident === true){
+      accident.atFaultForAccident = false
+    }
+  })
+return myCar 
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -158,5 +188,31 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
+function looper(){
+  for(i=0; i< numsArr.length; i++){
+    for(let j=0; j<numsArr[i].length; j++){
+      if(numsArr[i][j]%2 === 0){
+          numsArr[i][j]= 'even'
+      } else { numsArr[i][j] = 'odd'}
+    }
+  }
+  return numsArr
+}
 
+
+
+
+
+
+
+//     function looper(arr){
+//   for(i=0; i<arr.length; i++){
+//     console.log('?', arr[i])
+//     if(arr[i]%2 === 0){
+//      arr[i]= 'even'
+//     }else{ arr[i]= 'odd'}
+    
+//   }
+// return arr
+// }
 

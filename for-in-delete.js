@@ -40,7 +40,18 @@
 */
 
 function showValues( obj ) {
-  //Code Here
+  let box= ''
+ for(let key in obj){
+  //  console.log('obj value', obj[key])
+  //  //console.log(' ?', obj)
+  //  console.log('what is KEY?', key )
+   console.log("showValues ->  box",  box)
+   box += obj[key]
+   
+   
+  } 
+  return box
+ //Code Here
 }
 
 
@@ -55,7 +66,15 @@ function showValues( obj ) {
 
 //Code Here
 
+function greaterThan10(obj){
+  for(let key in obj){
+    if(obj[key] >10){
+     obj[key]=0
+    }
 
+  }
+  return obj
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -66,7 +85,12 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function double(obj){
+  for(let key in obj){
+    obj[key] *= 2
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 4 //////////
@@ -75,12 +99,21 @@ function showValues( obj ) {
   Write a function called secrets that will take in an object.
   Create an empty string variable.
   Write a for in loop that loops over the object.
-  If the property name starts with an 'sh', concatenate the value to the string variable.
+  If the key starts with an 'sh', concatenate the value to the string variable.
   By the end of the for in loop, you should have a sentence, return that sentence.
 */
 
 //Code Here
-
+function secrets(obj){
+  let str= ''
+  console.log('?', obj)
+  for(let key in obj){
+    if( key.startsWith('sh')){
+        str += obj[key]
+    }
+  }
+  return str
+}
 
 
 /* 
@@ -89,17 +122,17 @@ function showValues( obj ) {
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+var deleteAllThethings = {
+  one: 1,
+  two: 2,
+  three: 3
+}
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+for(var key in deleteAllThethings) {
+  delete deleteAllThethings[key]
+}
 
-// console.log(deleteAllThethings)
+console.log(deleteAllThethings)
 
 
 
@@ -112,7 +145,14 @@ function showValues( obj ) {
 
 //Code Here
 
-
+function removePassword (obj){
+for(let key in obj){
+  if (key === 'password'){
+    delete obj[key]
+  }
+}
+return obj
+}
 
 ////////// PROBLEM 6 //////////
 
@@ -132,6 +172,14 @@ var deleteTheBigNumbers = {
 //Code Here
 
 
+  for (let key in deleteTheBigNumbers){
+  if (deleteTheBigNumbers[key] > 100){
+    delete deleteTheBigNumbers[key]
+    }
+  }
+ 
+
+
 
 ////////// PROBLEM 7 //////////
 
@@ -143,15 +191,22 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function startsWithK(obj) {
+  for (let key in obj) {
+    if (key.startsWith('k')) {
+      delete obj[key]
+    }
+  }
+  return obj
+}
 
 
 ////////// PROBLEM 8 //////////
 
 /*
   Write a function called hiddenTreasure that takes in an object.
-  Write a for in loop that loops over this object. Each property will have a sentence as it's value.
-  If the property value does not contain the word 'treasure', delete the property.
+  Write a for in loop that loops over this object. Each key will have a sentence as it's value.
+  If the key value does not contain the word 'treasure', delete the property.
   Return the updated object.
 
   (hint: the method includes() may be of use...)
@@ -159,4 +214,11 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
-
+function hiddenTreasure(obj){
+  for(let key in obj){
+    if (!obj[key].includes('treasure') ){
+      delete obj[key]
+    }
+  }
+  return obj
+}
